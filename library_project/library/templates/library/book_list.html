@@ -1,25 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Könyvek listája</title>
+    <title>Books List</title>
 </head>
 <body>
-    <h1>Könyvek</h1>
-
+    <h1>Books</h1>
     <form method="get">
-        <input type="text" name="q" placeholder="Keresés cím vagy szerző alapján..." value="{{ query }}">
-        <button type="submit">Keresés</button>
+        <input type="text" name="q" placeholder="Search books or authors..." value="{{ query }}">
+        <button type="submit">Search</button>
     </form>
-
     <ul>
         {% for book in books %}
-            <li>
-                <strong>{{ book.title }}</strong> - {{ book.author }}
-                (<a href="{% url 'book_detail' book_id=book.id %}">Részletek</a>)
-            </li>
+            <li><a href="{% url 'book_detail' book_id=book.id %}">{{ book.title }} - {{ book.author }}</a></li>
         {% empty %}
-            <li>Nincs találat.</li>
+            <li>No books found.</li>
         {% endfor %}
     </ul>
 </body>

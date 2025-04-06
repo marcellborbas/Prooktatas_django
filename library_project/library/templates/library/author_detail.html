@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ author.name }}</title>
+</head>
+<body>
+    <h1>{{ author.name }}</h1>
+    <p><strong>Birth Date:</strong> {{ author.birth_date }}</p>
+    <p><strong>Birth Place:</strong> {{ author.birth_place }}</p>
+    <p><strong>Nationality:</strong> {{ author.nationality }}</p>
+    <p><strong>Death Date:</strong> {% if author.death_date %}{{ author.death_date }}{% else %}N/A{% endif %}</p>
+    <p><strong>Death Place:</strong> {% if author.death_place %}{{ author.death_place }}{% else %}N/A{% endif %}</p>
+
+    <h2>Books by {{ author.name }}</h2>
+    <ul>
+        {% for book in books %}
+            <li><a href="{% url 'book_detail' book_id=book.id %}">{{ book.title }}</a></li>
+        {% empty %}
+            <li>No books available for this author.</li>
+        {% endfor %}
+    </ul>
+    <p><a href="{% url 'author_list' %}">Back to author list</a></p>
+</body>
+</html>

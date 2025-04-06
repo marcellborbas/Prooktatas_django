@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>{{ book.title }}</title>
 </head>
 <body>
     <h1>{{ book.title }}</h1>
-    <ul>
-        <li><strong>Szerző:</strong> {{ book.author }}</li>
-        <li><strong>Kiadás éve:</strong> {{ book.publication_year }}</li>
-        <li><strong>ISBN:</strong> {{ book.isbn }}</li>
-        <li><strong>Oldalszám:</strong> {{ book.page_count }}</li>
-    </ul>
-
-    <p><a href="{% url 'book_list' %}">Vissza a listához</a></p>
+    <p><strong>Author:</strong> {{ book.author }}</p>
+    <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+    <p><strong>Publication Year:</strong> {{ book.publication_year }}</p>
+    <p><strong>Page Count:</strong> {{ book.page_count }}</p>
+    <p><a href="{% url 'book_list' %}">Back to list</a></p>
 </body>
 </html>
