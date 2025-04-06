@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>{{ product.name }}</h1>
+<ul>
+    <li>Price: {{product.price}}</li>
+    <li>Storage quantity: {{product.storage_quantity}}</li>
+    <li>Expire: {{product.expiry_date}}</li>
+    <li>Discounted: {% if product.is_discounted %} Igen {% else %} Nem {% endif %}</li>
+
+</ul>
+
+<p><a href="{% url 'product_list' %}">Products</a></p>
+
+</body>
+</html>

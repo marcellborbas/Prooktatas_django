@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PRODUCT</title>
+</head>
+<body>
+<p><a href="{% url 'index' %}">Home</a></p>
+
+<form method="get">
+    {{ form.as_p }}
+    <input type="submit" value="Search">
+</form>
+
+{% if products %}
+  <h2>PRODUCTS:</h2>
+    <ul>
+      {% for product in products %}
+        <li>{{ product.name }} {{ product.price }} {{ product.store_quantity }}
+        <a href="{% url 'product_details' product_id=product.id %}">{{ product.id }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+ {% else %}
+  <p>No product.</p>
+{% endif %}
+
+</body>
+</html>

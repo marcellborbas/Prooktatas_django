@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CUSTOMER</title>
+</head>
+<body>
+
+<p><a href="{% url 'index' %}">Home</a></p>
+
+<h3>Bekezdés</h3>
+<form method="get">
+    {{ form.as_p }}
+    <input type="submit" value="Search">
+</form>
+
+
+{% if customers %}
+  <h1>CUSTOMERS:</h1>
+    <ul>
+      {% for customer in customers %}
+        <li>
+          {{ customer.first_name }} {{ customer.last_name|upper }} ({{ customer.id }})
+          <a href="{% url 'customer_details' customer_id=customer.id %}">Details</a>
+        </li>
+      {% endfor %}
+    </ul>
+ {% else %}
+  <p>No customer.</p>
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Details</title>
+</head>
+<body>
+<h1>{{ customer.first_name }} {{ customer.last_name }}</h1>
+
+<ul>
+    <li>First name: {{ customer.first_name }}</li>
+    <li>Last name: {{ customer.last_name }}</li>
+    <li>Email: {{ customer.email }}</li>
+    <li>Age: {{ customer.age }}</li>
+    <li>Phone number: {{ customer.phone_number }}</li>
+    <li>Phone number: {% if customer.phone_number %} {{ customer.phone_number }} {% else %} - {% endif %}</li>
+</ul>
+
+<p><a href="{% url 'customer_list' %}">Back to Customers</a></p>
+
+</body>
+</html>
